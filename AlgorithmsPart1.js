@@ -43,6 +43,34 @@ var myInsertionSort = function (array) {
   return array;
 };
 
+//Reverse Order Insertion Sort (as per exercise 2.2 in CLRS)
+
+var reverseInsertionSort = function (array) {
+  var length = array.length;
+  var i, key, j;
+
+  //loop through the array
+  for (i = 0; i < length; i++) {
+
+    j = i;
+    key = array[j];
+
+    while (j < length) {
+        if (array[j] < array[j + 1]) {
+          array[j] = array[j + 1]; 
+          array[j + 1] = key;
+        };
+        j++;
+        console.log(array);
+      }
+    }
+  return array;
+};
+
+
+  j
+//12345
+
 //Merge sort
 
 var mergeSort = function  (array) {
@@ -51,7 +79,7 @@ var mergeSort = function  (array) {
   var n = null;
   var k;
 
-  for (k = 0; k < n; k ++) {
+  for (k = 0; k < n; k++) {
 
     if ()
   }
