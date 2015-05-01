@@ -43,6 +43,10 @@ var myInsertionSort = function (array) {
   return array;
 };
 
+var selectionSort = function  () {
+  // body...
+}
+
 //Reverse Order Insertion Sort (as per exercise 2.2 in CLRS)
 
 var reverseInsertionSort = function (array) {
@@ -50,9 +54,9 @@ var reverseInsertionSort = function (array) {
   var i, key, j;
 
   //loop through the array
-  for (i = 0; i < length; i++) {
+  for (i = length - 1; i > 0; i--) {
 
-    j = i;
+    j = i - 1;
     key = array[j];
 
     while (j < length) {
@@ -61,15 +65,15 @@ var reverseInsertionSort = function (array) {
           array[j + 1] = key;
         };
         j++;
-        console.log(array);
       }
     }
   return array;
 };
+//Pseudocode for linear search
 
-
-  j
-//12345
+//Input: sequence of n numbers in set A
+//Output: Index i or nil if val does not appear in set A
+//This is fairly trivial to do, just involves a loop
 
 //Merge sort
 
@@ -84,3 +88,23 @@ var mergeSort = function  (array) {
     if ()
   }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
