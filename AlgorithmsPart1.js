@@ -43,9 +43,45 @@ var myInsertionSort = function (array) {
   return array;
 };
 
-var selectionSort = function  () {
-  // body...
+//Selection sort
+//
+var selectionSort = function (array) {
+  
+
+  //find the first smallest element in the list
+  //then exchange with A[1]
+
+  var smallest;
+  var smallestIndex;
+  var i, j;
+  var len = array.length;
+
+
+  for (i = 0; i < len; i ++) {
+
+
+    for (j = i + 1; j < len; j ++) {
+
+      if(!smallest) {
+        smallest = array[j];
+        smallestIndex = j;
+      }
+
+      if(array[j] < smallest) {
+        smallest = array[j];
+        smallestIndex = j;
+      }
+    }
+    
+    array[smallestIndex] = array[i];
+    array[i] = smallest;
+  }
+    
+  return array;
 }
+
+//[5,4,3,2,1]
+//
 
 //Reverse Order Insertion Sort (as per exercise 2.2 in CLRS)
 
