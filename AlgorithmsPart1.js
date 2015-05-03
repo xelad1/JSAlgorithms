@@ -143,8 +143,15 @@ var reverseInsertionSort = function (array) {
 //Conquer: Sort the two sequences recursively using merge sort.
 //Combine:  Merge the two sorted subsequences to produce answer.
 
-var mergeSort = function  (argument) {
-  
+//p <= q < r
+var mergeSort = function  () {
+
+  //merge subroutine
+
+  var merge = function  (Array, p, q, r) {
+    // body...
+  }
+
 }
 
 
