@@ -58,9 +58,9 @@ var selectionSort = function (array) {
 
 
   for (i = 0; i < len; i ++) {
+    console.log(array);
 
-
-    for (j = i + 1; j < len; j ++) {
+    for (j = i; j < len; j ++) {
 
       if(!smallest) {
         smallest = array[j];
@@ -72,9 +72,11 @@ var selectionSort = function (array) {
         smallestIndex = j;
       }
     }
-    
+
     array[smallestIndex] = array[i];
     array[i] = smallest;
+    smallest = null;
+    smallestIndex = null;
   }
     
   return array;
