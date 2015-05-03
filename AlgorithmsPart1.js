@@ -43,8 +43,9 @@ var myInsertionSort = function (array) {
   return array;
 };
 
+
 //Selection sort
-//
+
 var selectionSort = function (array) {
   
 
@@ -58,7 +59,6 @@ var selectionSort = function (array) {
 
 
   for (i = 0; i < len; i ++) {
-    console.log(array);
 
     for (j = i; j < len; j ++) {
 
@@ -82,9 +82,31 @@ var selectionSort = function (array) {
   return array;
 }
 
-//[5,4,3,2,1]
-//
+//Canonical Selection Sort
+var canonicalSelectionSort = function (array) {
+  var i, j, iMin, swapped;
+  var n = array.length 
 
+  for (j = 0; j < n - 1; j ++) {
+
+    iMin = j;
+
+    for (i = j + 1; i < n; i ++) {
+
+      if (array[i] < array[iMin]) {
+        iMin = i;
+      }
+    }
+
+    if (iMin != j) {
+      swapped = array[j];
+      array[j] = array[iMin];
+      array[iMin] = swapped;
+    }
+  }
+
+  return array;
+}
 //Reverse Order Insertion Sort (as per exercise 2.2 in CLRS)
 
 var reverseInsertionSort = function (array) {
