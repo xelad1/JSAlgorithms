@@ -135,19 +135,17 @@ var reverseInsertionSort = function (array) {
 //Output: Index i or nil if val does not appear in set A
 //This is fairly trivial to do, just involves a loop
 
-//Merge sort
+//Merge Sort
 
-var mergeSort = function  (array) {
+//Explain the process of Merge Sort
+//Divide: Take n elements to be sorted into two subsequences of 
+//n/2 elements each.
+//Conquer: Sort the two sequences recursively using merge sort.
+//Combine:  Merge the two sorted subsequences to produce answer.
+
+var mergeSort = function  (argument) {
   
-  var i, j = 1;
-  var n = null;
-  var k;
-
-  for (k = 0; k < n; k++) {
-
-    if ()
-  }
-};
+}
 
 
 
