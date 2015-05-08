@@ -195,7 +195,20 @@ var numbersToPlace = {
   1000000000000000000: 'quintillion',
 };
 numberToEnglish = function (number) {
-  
+
+  var i, j, k, l;
+  var length = number.length;
+
+  var lessthan100 = function  (number) {
+    if (number < 20) {
+      return numbersToWords[number];
+    }
+
+      for(i = length; i > 0; i --) {
+
+      }
+  }
+
 };
 
 
