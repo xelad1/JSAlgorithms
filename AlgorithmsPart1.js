@@ -212,14 +212,19 @@ numberToEnglish = function (number) {
 
   var i, j, k, l;
   var length = number.length;
+  var splitNum = number.toString().split("");
 
   var lessthan20 = function (number) {
-    
+
       var numReturn = numbersToWords[number];
       return numReturn;
   }
 
   var lessthan100 = function (number) {
+
+    if(number < 20) {
+      return lessthan20(number);
+    }
     
     var splitNum = number.toString().split("");
     var tensPlace = splitNum[0] + "0";
@@ -230,9 +235,14 @@ numberToEnglish = function (number) {
     }
   }
 
-
-
-
+  var hundredsPlace = function (number) {
+      if(splitNum[1] === "0" && splitNum[2] === "0") {
+        return numbersToWords[splitNum[0]] + " " + numbersToPlace[100];
+      } else {
+        return lessthan20(splitNum[0]) + " " + numbersToPlace[100] + " " + lessthan100(splitNum[1] + splitNum[2]);
+      }
+  }
+  
   return lessthan20(number);
 };
 
