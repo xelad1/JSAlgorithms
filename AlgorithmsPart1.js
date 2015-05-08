@@ -154,6 +154,19 @@ var mergeSort = function  () {
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 var numbersToWords = {
   0: 'zero',
   1: 'one',
@@ -194,21 +207,33 @@ var numbersToPlace = {
   1000000000000000: 'quadrillion',
   1000000000000000000: 'quintillion',
 };
+
 numberToEnglish = function (number) {
 
   var i, j, k, l;
   var length = number.length;
 
-  var lessthan100 = function  (number) {
-    if (number < 20) {
-      return numbersToWords[number];
-    }
-
-      for(i = length; i > 0; i --) {
-
-      }
+  var lessthan20 = function (number) {
+    
+      var numReturn = numbersToWords[number];
+      return numReturn;
   }
 
+  var lessthan100 = function (number) {
+    
+    var splitNum = number.toString().split("");
+    var tensPlace = splitNum[0] + "0";
+    if(splitNum[1] === "0") {
+      return numbersToWords[number];
+    } else {
+      return numbersToWords[tensPlace] + " " + numbersToWords[splitNum[1]];
+    }
+  }
+
+
+
+
+  return lessthan20(number);
 };
 
 
