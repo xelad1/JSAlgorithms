@@ -129,6 +129,9 @@ var reverseInsertionSort = function (array) {
     }
   return array;
 };
+
+
+
 //Pseudocode for linear search
 
 //Input: sequence of n numbers in set A
@@ -243,11 +246,55 @@ numberToEnglish = function (number) {
       }
   }
   
-  return lessthan20(number);
+  var everythingElse = function (number) {
+    
+  }
 };
 
+//Canonical Solution
 
-
+numberToEnglish = function (number) {
+  // return my value as english words
+  var place, numberInPlace, numberLeft;
+  var decimalPart;
+  var output, restOfString, decimalString;
+  // separate decimal part for later
+  if (number % 1 !== 0) {
+    decimalPart = number % 1;
+    number = Math.floor(number);
+  }
+  if (numbersToWords[number]) {
+    // numbers less than 20 or divisible by 10 are unique(ish) and predefined
+    output = numbersToWords[number];
+  } else if (number < 100) {
+    // numbers less than 100 are a multiple of 10 and a single digit, hyphenated
+    numberInPlace = Math.floor(number / 10);
+    numberLeft = number % 10;
+    output = numbersToWords[numberInPlace * 10] +'-'+ numberToEnglish(numberLeft);
+  } else {
+    // all other numbers are a combination of a number we can write, and a place name
+    if (number < 1000) {
+      // the hundreds place is special
+      place = 100;
+    } else {
+      // all other places are a multiple of 1000
+      place = 1000;
+      while (place * 1000 <= number) {
+        place *= 1000;
+      }
+    }
+    numberInPlace = Math.floor(number / place);
+    numberLeft = number % place;
+    // assemble this 1000s place
+    output = numberToEnglish(numberInPlace) +' '+ numbersToPlace[place];
+    // assemble the rest of the number
+    restOfString = numberToEnglish(numberLeft);
+    if (restOfString !== 'zero') {
+      output += ' ' + restOfString;
+    }
+  }
+  return output;
+};
 
 
 
