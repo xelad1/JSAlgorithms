@@ -131,7 +131,6 @@ var reverseInsertionSort = function (array) {
 };
 
 
-
 //Pseudocode for linear search
 
 //Input: sequence of n numbers in set A
@@ -146,13 +145,21 @@ var reverseInsertionSort = function (array) {
 //Conquer: Sort the two sequences recursively using merge sort.
 //Combine:  Merge the two sorted subsequences to produce answer.
 
-//p <= q < r
+
 var mergeSort = function  () {
 
   //merge subroutine
 
   var merge = function  (Array, p, q, r) {
-    // body...
+    //These are the conditions of the indices within the array:
+    //p <= q < r
+    //We create a subarray
+    var n1, n2, i, j;
+
+    n1 = q - p + 1;
+    n2 = r - q;
+
+
   }
 
 }
