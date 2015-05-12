@@ -24,7 +24,28 @@ var iterativeFactorialRecursion = function (num) {
 //We've all seen this, however what happens when we expand this function?
 //Expanded visualization of function here:
 
-//For each function
+//Basic Iterative Each
+
+var iterativeEach = function (collection, iteratee) {
+  
+  for(var i = 0; i < collection.length; i ++) {
+    iteratee(collection[i]);
+  }
+}
+
+
+//We can even do this with some of our well known functions
+var recursiveEach = function (collection, callback, index) {
+  
+  //Base case?  Reach the end of the collection
+  index = index || 0;
+
+  if(index < collection.length - 1) {
+    callback(collection[index]); 
+    return recursiveEach(collection, callback, index + 1);
+  }
+
+}
 
 
 //Look at all the space we use up! 
@@ -57,12 +78,15 @@ var accumulativeFactorialRecursion = function (num, accumulator) {
 
 var Merge = function (A, p, q, r) {
   
-  var n1, n2, i, j;
+  var subPQ, subQR, i, j;
 
-  n1 = q - p + 1;
-  n2 = r - q;
+  //Compute length of subarray A[p...q]
+  subPQ = q - p + 1;
 
-  
+  //Compute length of subarray A[q + 1...r]
+  subQR = r - q;
+
+
 }
 
 
