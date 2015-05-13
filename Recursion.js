@@ -6,10 +6,12 @@
 //Recursion Notes for Lecture
 //Head Recursion
 
-
+//???
 
 
 //Tail Recursion
+//What is the benefit of using Tail Recursion?
+//We get to evaluate all of our values before the recursive call
 
 //Iterative Solutions (each, map, reduce) as recursion
 
@@ -34,7 +36,8 @@ var iterativeEach = function (collection, iteratee) {
 }
 
 
-//We can even do this with some of our well known functions
+//We can even do this with some of our well known functions!
+//Think of your first few Underscore functions, most are done iteratively
 var recursiveEach = function (collection, callback, index) {
   
   //Base case?  Reach the end of the collection
@@ -47,8 +50,29 @@ var recursiveEach = function (collection, callback, index) {
 
 }
 
+//However, look at all the space we use up!
+iterativeFactorialRecursion(6)
+6 * iterativeFactorialRecursion(5)
+6 * 5 iterativeFactorialRecursion(4)
+6 * 5 * 4 * iterativeFactorialRecursion(3)
+6 * 5 * 4 * 3 * iterativeFactorialRecursion(2)
+6 * 5 * 4 * 3 * 2 * iterativeFactorialRecursion(1)
+//Reaches base case
+6 * 5 * 4 * 3 * (2 * 1)
+6 * 5 * 4 * (3 * 2)
+6 * 5 * (4 * 6)
+6 * (5 * 24)
+6 * (120)
+720
 
-//Look at all the space we use up! 
+
+
+
+
+
+//Write out recursive-iteration space complexity visualization
+
+//However, we could save space using some tricks, like an accumulator
 
 var accumulativeFactorialRecursion = function (num, accumulator) {
  
@@ -60,6 +84,15 @@ var accumulativeFactorialRecursion = function (num, accumulator) {
 //2. We don't break the problem apart properly!
 //3. Figure out the repetitive pattern
 
+
+//[1,2,3,4,5,6,7]
+//Visualizing with an array of values
+
+//Important cases of recursive problems
+//1.  Divide and Conquer
+//2.  Flood Fill Algorithms
+//3.  Combinatorics/Permutations
+
 //Divide and Conquer Algorithms (Generally Recursive in Nature)
 //How do we tackle these?
 
@@ -69,12 +102,9 @@ var accumulativeFactorialRecursion = function (num, accumulator) {
 //3.  Combine solutions to subproblems into the solution for original problem
 //To reiterate:  Divide, Conquer, Combine
 
-
 //Case Study:  Mergesort (And general Merge Procedure)
 //Analyzing the Merge Procedure
-
-//[1,2,3,4,5,6,7]
-//Visualizing with an array of values
+//Is there a way to break this problem into very small components?
 
 var Merge = function (A, p, q, r) {
   
@@ -99,10 +129,4 @@ var Merge = function (A, p, q, r) {
 //Returning the recursive function itself (ie not storing in an array)
 //Function doesn't depend on anything beyond its own scope
 
-//Towers of Hanoi
-
-//Important cases of recursive problems
-//1.  Divide and Conquer
-//2.  Flood Fill Algorithms
-//3.  Combinatorics/Permutations
 
