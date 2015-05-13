@@ -15,12 +15,12 @@
 
 //Iterative Solutions (each, map, reduce) as recursion
 
-var iterativeFactorialRecursion = function (num) {
+var recursiveFactorial = function (num) {
   if (num <= 1) {
     return 1;
-  };
-  
-  return num * iterativeFactorialRecursion(num - 1);
+  }
+
+  return num * recursiveFactorial(num - 1);
 }
 
 //We've all seen this, however what happens when we expand this function?
@@ -28,10 +28,11 @@ var iterativeFactorialRecursion = function (num) {
 
 //Basic Iterative Each
 
-var iterativeEach = function (collection, iteratee) {
-  
-  for(var i = 0; i < collection.length; i ++) {
-    iteratee(collection[i]);
+var iterativeEach = function (collection, callback) {
+  var i;
+
+  for(i = 0; i < collection.length; i ++) {
+    callback(collection[i]);
   }
 }
 
@@ -51,12 +52,12 @@ var recursiveEach = function (collection, callback, index) {
 }
 
 //However, look at all the space we use up!
-iterativeFactorialRecursion(6)
-6 * iterativeFactorialRecursion(5)
-6 * 5 iterativeFactorialRecursion(4)
-6 * 5 * 4 * iterativeFactorialRecursion(3)
-6 * 5 * 4 * 3 * iterativeFactorialRecursion(2)
-6 * 5 * 4 * 3 * 2 * iterativeFactorialRecursion(1)
+recursiveFactorial(6)
+6 * recursiveFactorial(5)
+6 * 5 * recursiveFactorial(4)
+6 * 5 * 4 * recursiveFactorial(3)
+6 * 5 * 4 * 3 * recursiveFactorial(2)
+6 * 5 * 4 * 3 * 2 * recursiveFactorial(1)
 //Reaches base case
 6 * 5 * 4 * 3 * (2 * 1)
 6 * 5 * 4 * (3 * 2)
@@ -65,17 +66,21 @@ iterativeFactorialRecursion(6)
 6 * (120)
 720
 
-
-
-
-
+//Maybe make a "Stack Frame" visualization with an arrow moving through???
 
 //Write out recursive-iteration space complexity visualization
 
 //However, we could save space using some tricks, like an accumulator
 
-var accumulativeFactorialRecursion = function (num, accumulator) {
- 
+var iterativeFactorial = function (num, accumulator) {
+
+  accumulator = accumulator || 1;
+
+  if (num <= 1) {
+    return accumulator
+  };
+
+  return iterativeFactorial(num - 1, num * accumulator);
 }
 
 //How to tackle recursion!
@@ -106,19 +111,25 @@ var accumulativeFactorialRecursion = function (num, accumulator) {
 //Analyzing the Merge Procedure
 //Is there a way to break this problem into very small components?
 
-var Merge = function (A, p, q, r) {
+//What is our approach to DIVIDING this problem?
+//b(eginning) and e(nd)
+//Let's say we have a range of b - e of books on a bookshelf
+//We want to first find the m(idpoint) between these books
+
+
+
+var mergeSort = function (arr, beg, end) {
   
-  var subPQ, subQR, i, j;
 
-  //Compute length of subarray A[p...q]
-  subPQ = q - p + 1;
 
-  //Compute length of subarray A[q + 1...r]
-  subQR = r - q;
+  var merge = function (arr, beg, mid, end) {
+    
+    //Let's 
 
+
+  }
 
 }
-
 
 
 //Merge Procedure (quicksort?)
