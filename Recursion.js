@@ -100,17 +100,18 @@ var iterativeFactorial = function (num, accumulator) {
 
 //binarySearch requires an array to already be sorted
 
-var binarySearch = function (array, value, beg, mid, end) {
+var mybinarySearch = function (array, value, beg, mid, end) {
   
   beg = beg || 0;
+  end = end || array.length - 1;
 
+  //mitigates for js viewing 0 as a falsey value
   if (mid === 0) {
     mid = 0;
   } else {
     mid = mid || Math.floor((array.length - 1) / 2);
   }
   
-  end = end || array.length - 1;
 
   //What are our base cases?
   if (array[mid] === value) {
@@ -121,12 +122,12 @@ var binarySearch = function (array, value, beg, mid, end) {
     beg = mid + 1;
     mid = Math.floor((beg + end)/2);
 
-    return binarySearch(array, value, beg, mid, end);
+    return mybinarySearch(array, value, beg, mid, end);
   } else if (value < array[mid]) {
     end = mid - 1;
     mid = Math.floor((beg + end)/2);
 
-    return binarySearch(array, value, beg, mid, end);
+    return mybinarySearch(array, value, beg, mid, end);
   }
 }
 
