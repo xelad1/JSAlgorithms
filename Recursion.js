@@ -100,20 +100,40 @@ var iterativeFactorial = function (num, accumulator) {
 
 //binarySearch requires an array to already be sorted
 
-var binarySearch = function (array, value, mid) {
+var binarySearch = function (array, value, beg, mid, end) {
   
-  var arrayRight, arrayLeft;
-  mid = mid || Math.floor((array.length - 1) / 2);
-  //How do we perform this function on a range of values?
-  
+  beg = beg || 0;
 
-  if (array[mid] === value) {
-    return mid;
+  if (mid === 0) {
+    mid = 0;
   } else {
-    return "Not found";
-  };
+    mid = mid || Math.floor((array.length - 1) / 2);
+  }
+  
+  end = end || array.length - 1;
 
+  //What are our base cases?
+  if (array[mid] === value) {
+    return "Value found at index " + mid;
+  } else if (beg === mid && mid === end) {
+    return "Value not found!";
+  } else if (value > array[mid]) {
+    beg = mid + 1;
+    mid = Math.floor((beg + end)/2);
+
+    return binarySearch(array, value, beg, mid, end);
+  } else if (value < array[mid]) {
+    end = mid - 1;
+    mid = Math.floor((beg + end)/2);
+
+    return binarySearch(array, value, beg, mid, end);
+  }
 }
+
+//[1,2,3,4,7]
+//Searching for 6
+//[4,7]
+
 
 //Divide and Conquer Algorithms (Generally Recursive in Nature)
 //How do we tackle these?
@@ -158,3 +178,4 @@ var mergeSort = function (arr, beg, end) {
 //Function doesn't depend on anything beyond its own scope
 
 
+//Coin sums?
