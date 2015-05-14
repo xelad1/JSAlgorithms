@@ -98,6 +98,23 @@ var iterativeFactorial = function (num, accumulator) {
 //2.  Flood Fill Algorithms
 //3.  Combinatorics/Permutations
 
+//binarySearch requires an array to already be sorted
+
+var binarySearch = function (array, value, mid) {
+  
+  var arrayRight, arrayLeft;
+  mid = mid || Math.floor((array.length - 1) / 2);
+  //How do we perform this function on a range of values?
+  
+
+  if (array[mid] === value) {
+    return mid;
+  } else {
+    return "Not found";
+  };
+
+}
+
 //Divide and Conquer Algorithms (Generally Recursive in Nature)
 //How do we tackle these?
 
