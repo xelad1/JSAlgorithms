@@ -23,6 +23,20 @@ var recursiveFactorial = function (num) {
   return num * recursiveFactorial(num - 1);
 }
 
+var pureIterativeFactorial = function (num) {
+  var factVal = 1;
+
+  if (num <= 1) {
+    return 1;
+  };
+
+  for (var i = 2; i <= num; i ++) {
+    factVal *= i;
+  }
+
+  return factVal;
+
+}
 //We've all seen this, however what happens when we expand this function?
 //Expanded visualization of function here:
 
@@ -71,13 +85,14 @@ recursiveFactorial(6)
 //Write out recursive-iteration space complexity visualization
 
 //However, we could save space using some tricks, like an accumulator
+//This ends up simulating an iterative process
 
 var iterativeFactorial = function (num, accumulator) {
 
   accumulator = accumulator || 1;
 
   if (num <= 1) {
-    return accumulator
+    return accumulator;
   };
 
   return iterativeFactorial(num - 1, num * accumulator);
@@ -99,6 +114,17 @@ var iterativeFactorial = function (num, accumulator) {
 //3.  Combinatorics/Permutations
 
 //binarySearch requires an array to already be sorted
+
+//Divide and Conquer Algorithms (Generally Recursive in Nature)
+//How do we tackle these?
+
+//1.  We first Divide the problem into a number of subproblems
+//2.  We then conquer the subproblems by solving recursively
+//2a. If problems are small enough then we solve in a straightforward manner
+//3.  Combine solutions to subproblems into the solution for original problem
+//To reiterate:  Divide, Conquer, Combine
+
+//Example of the Divide Step
 
 var mybinarySearch = function (array, value, beg, mid, end) {
   
@@ -131,19 +157,6 @@ var mybinarySearch = function (array, value, beg, mid, end) {
   }
 }
 
-//[1,2,3,4,7]
-//Searching for 6
-//[4,7]
-
-
-//Divide and Conquer Algorithms (Generally Recursive in Nature)
-//How do we tackle these?
-
-//1.  We first Divide the problem into a number of subproblems
-//2.  We then conquer the subproblems by solving recursively
-//2a. If problems are small enough then we solve in a straightforward manner
-//3.  Combine solutions to subproblems into the solution for original problem
-//To reiterate:  Divide, Conquer, Combine
 
 //Case Study:  Mergesort (And general Merge Procedure)
 //Analyzing the Merge Procedure
@@ -169,6 +182,9 @@ var mergeSort = function (arr, beg, end) {
 
 }
 
+//Flood fill/pathing algorithms
+
+
 
 //Merge Procedure (quicksort?)
 //Divide and Conquer algorithms
@@ -177,6 +193,3 @@ var mergeSort = function (arr, beg, end) {
 //Not using side effects in a recursive problem
 //Returning the recursive function itself (ie not storing in an array)
 //Function doesn't depend on anything beyond its own scope
-
-
-//Coin sums?
