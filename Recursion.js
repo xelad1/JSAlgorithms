@@ -137,8 +137,6 @@ var mybinarySearch = function (array, value, beg, mid, end) {
   } else {
     mid = mid || Math.floor((array.length - 1) / 2);
   }
-  
-
   //What are our base cases?
   if (array[mid] === value) {
     return "Value found at index " + mid;
@@ -184,6 +182,9 @@ var mergeSort = function (arr, beg, end) {
 
 //Flood fill/pathing algorithms
 
+var floodFill = function (path?) {
+  // body...
+}
 
 
 //Merge Procedure (quicksort?)
