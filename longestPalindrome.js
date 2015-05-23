@@ -1,6 +1,12 @@
 var longestPalindrome = function (str) {
-  // body...
+  var length = string.length;
+  var longest = '';
+
+
+  
 }
+
+//Manacher's algorithm??? 
 
 var palindromeChecker = function (str) {
   var reverse = str.split("").reverse().join("");
