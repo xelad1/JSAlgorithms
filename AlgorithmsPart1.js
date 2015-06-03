@@ -150,11 +150,12 @@ var mergeSort = function  () {
 
   //merge subroutine
 
-  var merge = function  (Array, p, q, r) {
+  var merge = function  (Array, b, m, e) {
     //These are the conditions of the indices within the array:
     //p <= q < r
     //We create a subarray
     var n1, n2, i, j;
+
 
     n1 = q - p + 1;
     n2 = r - q;
@@ -163,6 +164,8 @@ var mergeSort = function  () {
   }
 
 }
+
+//Building the Merge subroutine
 
 //Pathfinding Algorithm
 
